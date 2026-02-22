@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID || '5192442579';
+  const chatId = process.env.TELEGRAM_CHAT_ID || '8572533544';
 
   if (!token) {
     return res.status(500).json({ error: 'TELEGRAM_BOT_TOKEN not configured' });
@@ -53,3 +53,4 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
