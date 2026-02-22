@@ -11,9 +11,12 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID || '8572533544';
+ const token = process.env.TELEGRAM_BOT_TOKEN;
+const chatId = process.env.TELEGRAM_CHAT_ID;
 
+if (!chatId) {
+  return res.status(500).json({ error: 'TELEGRAM_CHAT_ID not configured' });
+}
   if (!token) {
     return res.status(500).json({ error: 'TELEGRAM_BOT_TOKEN not configured' });
   }
@@ -53,4 +56,5 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
 
