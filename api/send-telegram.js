@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       message ? `💬 Повідомлення: ${message}` : ""
     ].filter(Boolean).join("\n");
 
-    const resp = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const resp = await fetch(`https://API.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text })
