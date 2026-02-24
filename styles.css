@@ -806,3 +806,79 @@ img {
     width: 100%;
   }
 }
+/* === Coverage block (під Hero) === */
+.coverage{
+  margin-top: -26px;            /* щоб блок “зайшов” на hero як на макеті */
+  padding: 0 0 34px;
+}
+
+.coverage-card{
+  background: rgba(235, 243, 250, 0.92);
+  border: 1px solid rgba(21, 94, 140, 0.14);
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.10);
+  backdrop-filter: blur(10px);
+}
+
+.coverage-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.coverage-item{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.coverage-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(21, 94, 140, 0.10);
+  color: #155E8C;
+  font-size: 20px;
+  flex: 0 0 44px;
+}
+
+.coverage-title{
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.25;
+}
+
+.coverage-price{
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+.coverage-where{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(15, 23, 42, 0.10);
+  text-align: center;
+  font-size: 16px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.coverage-where span{
+  color: #155E8C;
+}
+
+/* Адаптив під телефон */
+@media (max-width: 900px){
+  .coverage{ margin-top: -18px; }
+  .coverage-grid{ grid-template-columns: 1fr; }
+}
+
