@@ -646,14 +646,16 @@ img {
 
 .contact-form input,
 .contact-form textarea {
-  padding: 14px 18px;
+  padding: 18px 20px;        /* ⬅️ більше */
   font-family: var(--font);
-  font-size: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: var(--radius);
+  font-size: 1.05rem;        /* трохи більший текст */
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;       /* гарніше */
   background: var(--color-bg-card);
-  transition: border-color var(--transition);
+  min-height: 56px;          /* ⬅️ важливо */
 }
+
+
 
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -914,6 +916,7 @@ img {
     margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
   }
 }
+
 
 
 
