@@ -885,7 +885,7 @@ img {
 .coverage {
   position: relative;
   z-index: 5;
-  margin-top: -80px; /* заїжджає НА hero */
+  margin-top: -160px; /* заїжджає НА hero */
   padding: 20px;
 }
 
@@ -905,5 +905,6 @@ img {
   color: #fff;
   font-weight: 600;
 }
+
 
 
