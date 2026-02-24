@@ -905,6 +905,16 @@ img {
   color: #fff;
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .coverage {
+    margin-top: -80px; /* ⬅️ менше піднімаємо на мобільному */
+  }
+
+  .hero-badges {
+    margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
+  }
+}
+
 
 
 
