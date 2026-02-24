@@ -881,4 +881,29 @@ img {
   .coverage{ margin-top: -18px; }
   .coverage-grid{ grid-template-columns: 1fr; }
 }
+/* ===== Блок поверх hero ===== */
+.coverage {
+  position: relative;
+  z-index: 5;
+  margin-top: -80px; /* заїжджає НА hero */
+  padding: 20px;
+}
+
+.coverage-inner {
+  background: rgba(15, 23, 42, 0.85); /* темний, поверх чорного */
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.coverage-card {
+  background: rgba(255,255,255,0.95);
+}
+
+.coverage-area {
+  color: #fff;
+  font-weight: 600;
+}
+
 
