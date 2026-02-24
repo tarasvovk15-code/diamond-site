@@ -916,6 +916,15 @@ img {
     margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
   }
 }
+@media (max-width: 768px){
+  .contact-form input,
+  .contact-form textarea,
+  .comment-form input,
+  .comment-form textarea {
+    font-size: 1.1rem;
+    min-height: 60px;
+  }
+}
 
 
 
