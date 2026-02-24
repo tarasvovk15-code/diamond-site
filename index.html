@@ -317,7 +317,6 @@
       SUPABASE_KEY
     );
   </script>
-</body>
   <script>
   // ⚠️ якщо твоя таблиця називається інакше — зміни тут:
   const TABLE_NAME = "reviews"; // або "reviews"
@@ -388,6 +387,82 @@
 
   loadReviews();
 </script>
+</body>
+    <script src="script.js"></script>
 
-</html>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_ТУТ_ПОВНИЙ_КЛЮЧ";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const TABLE_NAME = "reviews";
+    const reviewsList = document.getElementById("reviewsList");
+    const form = document.getElementById("reviewForm");
+    const statusEl = document.getElementById("reviewStatus");
+
+    async function loadReviews() {
+      const { data, error } = await supabaseClient
+        .from(TABLE_NAME)
+        .select("id, author, comment, created_at")
+        .eq("is_approved", true)
+        .order("created_at", { ascending: false })
+        .limit(50);
+
+      if (error) {
+        console.error(error);
+        reviewsList.innerHTML = "<p>Помилка завантаження відгуків.</p>";
+        return;
+      }
+
+      if (!data || data.length === 0) {
+        reviewsList.innerHTML = "<p>Поки що немає відгуків.</p>";
+        return;
+      }
+
+      reviewsList.innerHTML = data.map(r => `
+        <div class="review-card">
+          <p class="review-text">“${escapeHtml(r.comment)}”</p>
+          <div class="review-author">
+            <strong>${escapeHtml(r.author || "Анонім")}</strong>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const author = document.getElementById("author").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      statusEl.textContent = "Надсилаємо...";
+
+      const { error } = await supabaseClient
+        .from(TABLE_NAME)
+        .insert([{ author, comment, is_approved: false }]);
+
+      if (error) {
+        console.error(error);
+        statusEl.textContent = "Помилка. Перевір INSERT policy (RLS).";
+        return;
+      }
+
+      form.reset();
+      statusEl.textContent = "Дякуємо! Відгук з’явиться після підтвердження.";
+    });
+
+    function escapeHtml(str) {
+      return (str || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    loadReviews();
+  </script>
+</body>
 </html>
