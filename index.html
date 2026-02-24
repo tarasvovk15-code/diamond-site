@@ -237,20 +237,20 @@
         </div>
       </div>
     </div>
-  </section>
+<section id="reviews" class="section section-reviews">
+  <div class="container">
+    <h2 class="section-title">Відгуки</h2>
 
-  <!-- 7. Коментарі -->
-  <section id="reviews" class="section section-reviews">
-    <div class="container">
-      <h2 class="section-title">Коментарі</h2>
-      <form class="comment-form">
-        <input type="text" name="author" placeholder="Ваше ім'я" required>
-        <textarea name="comment" placeholder="Залиште ваш відгук..." rows="3" required></textarea>
-        <button type="submit" class="btn btn-primary">Опублікувати</button>
-      </form>
-      <div class="comments-list"></div>
-    </div>
-  </section>
+    <form class="comment-form" id="reviewForm">
+      <input type="text" id="author" name="author" placeholder="Ваше ім'я" required>
+      <textarea id="comment" name="comment" placeholder="Залиште ваш відгук..." rows="3" required></textarea>
+      <button type="submit" class="btn btn-primary">Опублікувати</button>
+      <p id="reviewStatus" style="margin-top:10px;"></p>
+    </form>
+
+    <div class="comments-list" id="reviewsList"></div>
+  </div>
+</section>
 
   <!-- 8. Контакти -->
   <section id="contacts" class="section section-contacts">
@@ -304,4 +304,90 @@
 -->
   <script src="script.js"></script>
 </body>
+    <!-- твій HTML вище -->
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_WNnsf6Gy4KOIw7CfFNJmFw_jDddr3H-";
+
+    const supabase = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+  </script>
+</body>
+  <script>
+  // ⚠️ якщо твоя таблиця називається інакше — зміни тут:
+  const TABLE_NAME = "reviews"; // або "reviews"
+
+  const reviewsList = document.getElementById("reviewsList");
+  const form = document.getElementById("reviewForm");
+  const statusEl = document.getElementById("reviewStatus");
+
+  async function loadReviews() {
+    const { data, error } = await supabase
+      .from(TABLE_NAME)
+      .select("id, author, comment, created_at")
+      .eq("is_approved", true)
+      .order("created_at", { ascending: false })
+      .limit(50);
+
+    if (error) {
+      console.error(error);
+      reviewsList.innerHTML = "<p>Помилка завантаження відгуків.</p>";
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      reviewsList.innerHTML = "<p>Поки що немає відгуків.</p>";
+      return;
+    }
+
+    reviewsList.innerHTML = data.map(r => `
+      <div class="review-card">
+        <p class="review-text">“${escapeHtml(r.comment)}”</p>
+        <div class="review-author">
+          <strong>${escapeHtml(r.author || "Анонім")}</strong>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const author = document.getElementById("author").value.trim();
+    const comment = document.getElementById("comment").value.trim();
+
+    statusEl.textContent = "Надсилаємо...";
+
+    const { error } = await supabase
+      .from(TABLE_NAME)
+      .insert([{ author, comment, is_approved: false }]);
+
+    if (error) {
+      console.error(error);
+      statusEl.textContent = "Помилка. Перевір INSERT policy (RLS).";
+      return;
+    }
+
+    form.reset();
+    statusEl.textContent = "Дякуємо! Відгук з’явиться після підтвердження.";
+  });
+
+  function escapeHtml(str) {
+    return (str || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  loadReviews();
+</script>
+
+</html>
 </html>
