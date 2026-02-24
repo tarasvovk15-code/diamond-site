@@ -441,7 +441,7 @@
 
       const { error } = await supabaseClient
         .from(TABLE_NAME)
-        .insert([{ author, comment, is_approved: false }]);
+        .insert([{ author, comment, is_approved: true }]);
 
       if (error) {
         console.error(error);
