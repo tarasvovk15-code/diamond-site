@@ -890,7 +890,7 @@ img {
 }
 @media (max-width: 768px) {
   .coverage {
-    margin-top: -45px; /* ⬅️ менше піднімаємо на мобільному */
+    margin-top: -20px; /* ⬅️ менше піднімаємо на мобільному */
   }
 
   .hero-badges {
@@ -952,6 +952,7 @@ main {
 .section {
   min-height: auto !important;
 }
+
 
 
 
