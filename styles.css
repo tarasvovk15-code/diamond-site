@@ -960,7 +960,7 @@ main {
 }
 /* FIX coverage position (override all previous rules) */
 .coverage{
-  margin-top: -80px !important;   /* підняти на ПК */
+  margin-top: -160px !important;   /* підняти на ПК */
   padding: 0 0 34px !important;
   position: relative;
   z-index: 5;
@@ -969,12 +969,13 @@ main {
 /* Мобілка — опустити нижче, щоб не залазило на hero */
 @media (max-width: 768px){
   .coverage{
-    margin-top: -75px !important;  /* став 20 / 40 / 60 як хочеш */
+    margin-top: -80px !important;  /* став 20 / 40 / 60 як хочеш */
   }
   .hero{
     padding-bottom: 40px;
   }
 }
+
 
 
 
