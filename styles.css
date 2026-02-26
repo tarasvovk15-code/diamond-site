@@ -958,6 +958,24 @@ main {
 .section {
   min-height: auto !important;
 }
+/* FIX coverage position (override all previous rules) */
+.coverage{
+  margin-top: -26px !important;   /* підняти на ПК */
+  padding: 0 0 34px !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Мобілка — опустити нижче, щоб не залазило на hero */
+@media (max-width: 768px){
+  .coverage{
+    margin-top: 20px !important;  /* став 20 / 40 / 60 як хочеш */
+  }
+  .hero{
+    padding-bottom: 40px;
+  }
+}
+
 
 
 
