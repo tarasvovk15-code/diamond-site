@@ -890,11 +890,11 @@ img {
 }
 @media (max-width: 768px) {
   .coverage {
-    margin-top: -65px; /* ⬅️ менше піднімаємо на мобільному */
+    margin-top: -60px; /* ⬅️ менше піднімаємо на мобільному */
   }
 
   .hero-badges {
-    margin-bottom: 15px; /* ⬅️ даємо місце бейджам */
+    margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
   }
 }
 .footer {
@@ -923,6 +923,36 @@ body {
 .footer {
   margin-top: auto;
 }
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* прибираємо зайвий простір над футером */
+.section-contacts {
+  padding-bottom: 40px; /* можеш 20-60 */
+  margin-bottom: 0 !important;
+}
+
+/* якщо десь задано "height: 100vh" або "min-height" */
+.section-contacts,
+.section {
+  min-height: auto !important;
+}
+
 
 
 
