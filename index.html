@@ -315,6 +315,10 @@
   Токен отримай у @BotFather в Telegram.
 -->
   <!-- Supabase -->
+<script src="script.js"></script>
+</body>
+    <!-- твій HTML вище -->
+
   <!-- підключаємо supabase -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
@@ -322,6 +326,7 @@
   <script>
     const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
     const SUPABASE_KEY = "sb_publishable_WNnsf6Gy4KOIw7CfFNJmFw_jDddr3H-";
+
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     const TABLE_NAME = "reviews";
@@ -381,7 +386,7 @@
     loadReviews();
   </script>
 
-  <!-- твій головний JS (ОДИН РАЗ) -->
+  <!-- інші скрипти (якщо треба) -->
   <script src="script.js"></script>
 </body>
 </html>
