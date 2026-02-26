@@ -31,10 +31,9 @@ body {
 .coverage {
   position: relative;
   z-index: 5;
-  margin-top: -80px; /* ← заїжджає на hero */
+  margin-top: -160px; /* ⬅️ піднімає блок вище */
   padding: 20px;
 }
-
 /* сам контейнер */
 .coverage-inner {
   background: rgba(15, 23, 42, 0.85); /* темний напівпрозорий */
@@ -889,5 +888,15 @@ img {
   .coverage{ margin-top: -18px; }
   .coverage-grid{ grid-template-columns: 1fr; }
 }
+@media (max-width: 768px) {
+  .coverage {
+    margin-top: -80px; /* ⬅️ менше піднімаємо на мобільному */
+  }
+
+  .hero-badges {
+    margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
+  }
+}
+
 
 
