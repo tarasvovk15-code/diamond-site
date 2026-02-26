@@ -27,6 +27,33 @@ html {
 
 body {
   font-family: var(--font);
+  /* ===== Coverage поверх hero ===== */
+.coverage {
+  position: relative;
+  z-index: 5;
+  margin-top: -80px; /* ← заїжджає на hero */
+  padding: 20px;
+}
+
+/* сам контейнер */
+.coverage-inner {
+  background: rgba(15, 23, 42, 0.85); /* темний напівпрозорий */
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* картки */
+.coverage-card {
+  background: rgba(255,255,255,0.95);
+}
+
+/* текст "Працюємо" */
+.coverage-area {
+  color: #fff;
+  font-weight: 600;
+}
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-text);
@@ -862,4 +889,5 @@ img {
   .coverage{ margin-top: -18px; }
   .coverage-grid{ grid-template-columns: 1fr; }
 }
+
 
