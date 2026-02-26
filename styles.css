@@ -897,6 +897,12 @@ img {
     margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
   }
 }
+.bottom-bar {
+  width: 100%;
+  height: 60px;          /* висота смужки */
+  background-color: #e5e5e5; /* світло-сірий */
+}
+
 
 
 
