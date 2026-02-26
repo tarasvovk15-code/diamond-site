@@ -698,6 +698,7 @@ img {
 /* === Responsive === */
 @media (max-width: 992px) {
   .nav {
+    display: none;              /* ⬅️ важливо */
     position: fixed;
     top: 60px;
     left: 0;
@@ -707,12 +708,18 @@ img {
     padding: 24px;
     gap: 16px;
     box-shadow: var(--shadow);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition);
-    z-index: 99;
+    z-index: 1000;              /* ⬅️ піднімаємо вище */
   }
+
+  .nav.is-open {
+    display: flex;              /* ⬅️ показуємо при кліку */
+  }
+
+  .burger {
+    display: flex;
+    z-index: 1100;              /* ⬅️ щоб бургер був клікабельний */
+  }
+}
 
   .nav.is-open {
     transform: translateY(0);
@@ -925,6 +932,7 @@ img {
     min-height: 60px;
   }
 }
+
 
 
 
