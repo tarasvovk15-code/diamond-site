@@ -969,12 +969,13 @@ main {
 /* Мобілка — опустити нижче, щоб не залазило на hero */
 @media (max-width: 768px){
   .coverage{
-    margin-top: 20px !important;  /* став 20 / 40 / 60 як хочеш */
+    margin-top: 60px !important;  /* став 20 / 40 / 60 як хочеш */
   }
   .hero{
     padding-bottom: 40px;
   }
 }
+
 
 
 
