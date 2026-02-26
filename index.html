@@ -315,12 +315,13 @@
   Токен отримай у @BotFather в Telegram.
 -->
   <!-- Supabase -->
+  <!-- підключаємо supabase -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
+  <!-- твій код відгуків -->
   <script>
     const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
     const SUPABASE_KEY = "sb_publishable_WNnsf6Gy4KOIw7CfFNJmFw_jDddr3H-";
-
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     const TABLE_NAME = "reviews";
@@ -337,53 +338,50 @@
 
       if (error) {
         console.error(error);
-        if (reviewsList) reviewsList.innerHTML = "Помилка завантаження";
+        reviewsList.innerHTML = "Помилка завантаження";
         return;
       }
 
-      if (reviewsList) {
-        reviewsList.innerHTML = (data || []).map(r => `
-          <div class="review-card">
-            <p>“${r.comment}”</p>
-            <strong>${r.author}</strong>
-          </div>
-        `).join("");
+      reviewsList.innerHTML = data.map(r => `
+        <div class="review-card">
+          <p>“${r.comment}”</p>
+          <strong>${r.author}</strong>
+        </div>
+      `).join("");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const author = document.getElementById("author").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      if (!author || !comment) {
+        statusEl.textContent = "Заповни ім’я і відгук";
+        return;
       }
-    }
 
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      statusEl.textContent = "Надсилаємо...";
 
-        const author = document.getElementById("author").value.trim();
-        const comment = document.getElementById("comment").value.trim();
+      const { error } = await supabaseClient
+        .from(TABLE_NAME)
+        .insert([{ author, comment, is_approved: false }]);
 
-        if (!author || !comment) {
-          statusEl.textContent = "Заповни ім’я і відгук";
-          return;
-        }
+      if (error) {
+        console.error(error);
+        statusEl.textContent = "Помилка: " + error.message;
+        return;
+      }
 
-        statusEl.textContent = "Надсилаємо...";
-
-        const { error } = await supabaseClient
-          .from(TABLE_NAME)
-          .insert([{ author, comment, is_approved: false }]);
-
-        if (error) {
-          console.error(error);
-          statusEl.textContent = "Помилка: " + error.message;
-          return;
-        }
-
-        form.reset();
-        statusEl.textContent = "Відгук відправлено!";
-      });
-    }
+      form.reset();
+      statusEl.textContent = "Відгук відправлено!";
+      loadReviews();
+    });
 
     loadReviews();
   </script>
 
-  <!-- Основний JS (один раз) -->
+  <!-- твій головний JS (ОДИН РАЗ) -->
   <script src="script.js"></script>
 </body>
 </html>
