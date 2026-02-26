@@ -657,48 +657,12 @@ img {
 
 
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
+/* === Responsive Header Menu (PC menu + Mobile burger) === */
 
-.contact-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-/* === 9. Footer === */
-.footer {
-  padding: 24px 0;
-  background: rgb(111, 114, 116);
-  /* ← ОЦЕ міняє колір */
-  color: #EDEFF4;
-
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-copy {
-  font-size: 0.95rem;
-}
-
-.footer a {
-  color: var(--color-accent);
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* === Responsive === */
+/* 📱 Телефон: меню приховане, відкривається бургером */
 @media (max-width: 992px) {
   .nav {
-    display: none;              /* ⬅️ важливо */
+    display: none;
     position: fixed;
     top: 60px;
     left: 0;
@@ -708,36 +672,11 @@ img {
     padding: 24px;
     gap: 16px;
     box-shadow: var(--shadow);
-    z-index: 1000;              /* ⬅️ піднімаємо вище */
+    z-index: 9999;
   }
 
   .nav.is-open {
-    display: flex;              /* ⬅️ показуємо при кліку */
-  }
-
-  .burger {
     display: flex;
-    z-index: 1100;              /* ⬅️ щоб бургер був клікабельний */
-  }
-}
-
-  .nav.is-open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-cta {
-    display: inline-flex;
-    background: var(--color-accent);
-    color: white !important;
-    padding: 12px 24px;
-    border-radius: var(--radius);
-    margin-top: 8px;
-  }
-
-  .nav-cta:hover {
-    background: var(--color-accent-hover);
   }
 
   .header-inner .btn-cta {
@@ -746,6 +685,9 @@ img {
 
   .burger {
     display: flex;
+    z-index: 10000;
+    background: none;
+    border: none;
   }
 
   .burger.is-active span:nth-child(1) {
@@ -761,22 +703,41 @@ img {
     transition: transform var(--transition), opacity var(--transition);
   }
 
+  .nav-cta {
+    display: inline-flex;
+    background: var(--color-accent);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    margin-top: 8px;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-accent-hover);
+  }
+
   .contacts-grid {
     grid-template-columns: 1fr;
   }
 }
 
+/* 💻 ПК: меню показане, бургер схований */
 @media (min-width: 993px) {
   .nav {
-    display: flex !important;
+    display: flex;
     position: static;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
+    flex-direction: row;
+    gap: 28px;
     padding: 0;
+    box-shadow: none;
+  }
+
+  .burger {
+    display: none;
   }
 }
 
+/* === Responsive (other) === */
 @media (max-width: 768px) {
   .section {
     padding: 48px 0;
@@ -815,157 +776,3 @@ img {
     width: 100%;
   }
 }
-/* === Coverage block (під Hero) === */
-.coverage{
-  margin-top: -26px;            /* щоб блок “зайшов” на hero як на макеті */
-  padding: 0 0 34px;
-}
-
-.coverage-card{
-  background: rgba(235, 243, 250, 0.92);
-  border: 1px solid rgba(21, 94, 140, 0.14);
-  border-radius: 18px;
-  padding: 16px 16px 14px;
-  box-shadow: 0 14px 38px rgba(0,0,0,0.10);
-  backdrop-filter: blur(10px);
-}
-
-.coverage-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.coverage-item{
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  background: rgba(255,255,255,0.86);
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  border-radius: 14px;
-  padding: 12px 14px;
-}
-
-.coverage-icon{
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: rgba(21, 94, 140, 0.10);
-  color: #155E8C;
-  font-size: 20px;
-  flex: 0 0 44px;
-}
-
-.coverage-title{
-  font-size: 13px;
-  color: #334155;
-  line-height: 1.25;
-}
-
-.coverage-price{
-  font-size: 22px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-top: 2px;
-}
-
-.coverage-where{
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(15, 23, 42, 0.10);
-  text-align: center;
-  font-size: 16px;
-  color: #0f172a;
-  font-weight: 600;
-}
-
-.coverage-where span{
-  color: #155E8C;
-}
-
-/* Адаптив під телефон */
-@media (max-width: 900px){
-  .coverage{ margin-top: -18px; }
-  .coverage-grid{ grid-template-columns: 1fr; }
-}
-/* ===== Блок поверх hero ===== */
-.coverage {
-  position: relative;
-  z-index: 5;
-  margin-top: -160px; /* заїжджає НА hero */
-  padding: 20px;
-}
-
-.coverage-inner {
-  background: rgba(15, 23, 42, 0.85); /* темний, поверх чорного */
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-}
-
-.coverage-card {
-  background: rgba(255,255,255,0.95);
-}
-
-.coverage-area {
-  color: #fff;
-  font-weight: 600;
-}
-@media (max-width: 768px) {
-  .coverage {
-    margin-top: -80px; /* ⬅️ менше піднімаємо на мобільному */
-  }
-
-  .hero-badges {
-    margin-bottom: 20px; /* ⬅️ даємо місце бейджам */
-  }
-}
-@media (max-width: 768px){
-  .contact-form input,
-  .contact-form textarea,
-  .comment-form input,
-  .comment-form textarea {
-    font-size: 1.1rem;
-    min-height: 60px;
-  }
-}
-/* ===== FORCE mobile menu (fix) ===== */
-@media (max-width: 992px) {
-  .nav {
-    display: none !important;
-    position: fixed !important;
-    top: 60px !important;
-    left: 0 !important;
-    right: 0 !important;
-    background: var(--color-bg-card) !important;
-    flex-direction: column !important;
-    padding: 24px !important;
-    gap: 16px !important;
-    box-shadow: var(--shadow) !important;
-    z-index: 9999 !important;
-
-    /* прибираємо старі “ховаючі” стилі */
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .nav.is-open {
-    display: flex !important;
-  }
-
-  .burger {
-    display: flex !important;
-    z-index: 10000 !important;
-  }
-}
-
-
-
-
-
-
-
