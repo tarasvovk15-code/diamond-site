@@ -160,57 +160,12 @@
     });
   });
 
-  // Коментарі (localStorage)
-  const COMMENTS_KEY = 'almazne_comments';
-  const commentsList = document.querySelector('.comments-list');
-  const commentForm = document.querySelector('.comment-form');
-
-  function loadComments() {
-    const raw = localStorage.getItem(COMMENTS_KEY);
-    const comments = raw ? JSON.parse(raw) : [];
-    if (!commentsList) return;
-    commentsList.innerHTML = comments.map(c => `
-      <div class="review-card">
-        <p class="review-text">${escapeHtml(c.text)}</p>
-        <div class="review-author">
-          <strong>${escapeHtml(c.author)}</strong>
-          <span>${formatDate(c.date)}</span>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function escapeHtml(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  function formatDate(ms) {
-    const d = new Date(ms);
-    return d.toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
-
-  if (commentForm) {
-    commentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const author = commentForm.author.value.trim();
-      const text = commentForm.comment.value.trim();
-      if (!author || !text) return;
-      const raw = localStorage.getItem(COMMENTS_KEY);
-      const comments = raw ? JSON.parse(raw) : [];
-      comments.unshift({ author, text, date: Date.now() });
-      localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
-      commentForm.reset();
-      loadComments();
-    });
-  }
-
-  loadComments();
-
-  // Sticky header
+ 
+   // Sticky header
   const header = document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => header.classList.toggle('is-scrolled', window.scrollY > 50));
+    window.addEventListener('scroll', () =>
+      header.classList.toggle('is-scrolled', window.scrollY > 50)
+    );
   }
 })();
