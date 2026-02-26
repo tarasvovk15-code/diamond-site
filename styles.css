@@ -902,7 +902,7 @@ img {
     padding-bottom: 40px;            /* можеш 20-80 */
   }
 }
-}
+
 .footer {
   background-color: #2f2f2f;   /* темно-сірий */
   color: #ffffff;
@@ -958,6 +958,7 @@ main {
 .section {
   min-height: auto !important;
 }
+
 
 
 
