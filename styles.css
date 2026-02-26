@@ -646,13 +646,24 @@ img {
 
 .contact-form input,
 .contact-form textarea {
-  padding: 18px 20px;        /* ⬅️ більше */
+  padding: 18px 20px;
   font-family: var(--font);
-  font-size: 1.05rem;        /* трохи більший текст */
+  font-size: 1.05rem;
   border: 1.5px solid #e5e7eb;
-  border-radius: 14px;       /* гарніше */
+  border-radius: 14px;
   background: var(--color-bg-card);
-  min-height: 56px;          /* ⬅️ важливо */
+  min-height: 56px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 
@@ -776,3 +787,4 @@ img {
     width: 100%;
   }
 }
+
