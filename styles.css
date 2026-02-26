@@ -891,7 +891,7 @@ img {
 /* Мобілка: опустити блок "Мінімальна ціна..." нижче */
 @media (max-width: 768px) {
   .coverage {
-    margin-top: 20px !important;     /* зроби 20-60 як тобі треба */
+    margin-top: 60px !important;     /* зроби 20-60 як тобі треба */
     transform: none !important;      /* якщо було підняття через transform */
     position: relative;
     z-index: 1;
@@ -958,6 +958,7 @@ main {
 .section {
   min-height: auto !important;
 }
+
 
 
 
