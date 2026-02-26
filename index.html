@@ -318,14 +318,9 @@
   Для роботи потрібно задеплоїти на Vercel та додати змінну TELEGRAM_BOT_TOKEN.
   Токен отримай у @BotFather в Telegram.
 -->
-  <script src="script.js"></script>
-</body>
-    <!-- твій HTML вище -->
-
-  <!-- підключаємо supabase -->
+  <!-- Supabase -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
-  <!-- твій код відгуків -->
   <script>
     const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
     const SUPABASE_KEY = "sb_publishable_WNnsf6Gy4KOIw7CfFNJmFw_jDddr3H-";
@@ -346,50 +341,53 @@
 
       if (error) {
         console.error(error);
-        reviewsList.innerHTML = "Помилка завантаження";
+        if (reviewsList) reviewsList.innerHTML = "Помилка завантаження";
         return;
       }
 
-      reviewsList.innerHTML = data.map(r => `
-        <div class="review-card">
-          <p>“${r.comment}”</p>
-          <strong>${r.author}</strong>
-        </div>
-      `).join("");
+      if (reviewsList) {
+        reviewsList.innerHTML = (data || []).map(r => `
+          <div class="review-card">
+            <p>“${r.comment}”</p>
+            <strong>${r.author}</strong>
+          </div>
+        `).join("");
+      }
     }
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      const author = document.getElementById("author").value.trim();
-      const comment = document.getElementById("comment").value.trim();
+        const author = document.getElementById("author").value.trim();
+        const comment = document.getElementById("comment").value.trim();
 
-      if (!author || !comment) {
-        statusEl.textContent = "Заповни ім’я і відгук";
-        return;
-      }
+        if (!author || !comment) {
+          statusEl.textContent = "Заповни ім’я і відгук";
+          return;
+        }
 
-      statusEl.textContent = "Надсилаємо...";
+        statusEl.textContent = "Надсилаємо...";
 
-      const { error } = await supabaseClient
-        .from(TABLE_NAME)
-        .insert([{ author, comment, is_approved: false }]);
+        const { error } = await supabaseClient
+          .from(TABLE_NAME)
+          .insert([{ author, comment, is_approved: false }]);
 
-      if (error) {
-        console.error(error);
-        statusEl.textContent = "Помилка: " + error.message;
-        return;
-      }
+        if (error) {
+          console.error(error);
+          statusEl.textContent = "Помилка: " + error.message;
+          return;
+        }
 
-      form.reset();
-      statusEl.textContent = "Відгук відправлено!";
-      loadReviews();
-    });
+        form.reset();
+        statusEl.textContent = "Відгук відправлено!";
+      });
+    }
 
     loadReviews();
   </script>
 
-  <!-- інші скрипти (якщо треба) -->
+  <!-- Основний JS (один раз) -->
   <script src="script.js"></script>
 </body>
 </html>
