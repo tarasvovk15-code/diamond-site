@@ -960,7 +960,7 @@ main {
 }
 /* FIX coverage position (override all previous rules) */
 .coverage{
-  margin-top: -160px !important;   /* підняти на ПК */
+  margin-top: -100px !important;   /* підняти на ПК */
   padding: 0 0 34px !important;
   position: relative;
   z-index: 5;
@@ -975,6 +975,7 @@ main {
     padding-bottom: 40px;
   }
 }
+
 
 
 
