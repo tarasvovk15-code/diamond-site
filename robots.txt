@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tarasvovk15-code.github.io/diamond-site/sitemap.xml
