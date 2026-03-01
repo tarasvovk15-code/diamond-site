@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алмазне свердління — професійне буріння отворів</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 1. Sticky Header -->
+  <header class="header">
+    <div class="header-inner container">
+      <a href="#" class="logo">Алмазне свердління</a>
+      <nav class="nav">
+        <a href="#services">Послуги</a>
+        <a href="#advantages">Переваги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#price">Прайс</a>
+        <a href="#reviews">Відгуки</a>
+        <a href="#contacts">Контакти</a>
+        <a href="#" class="nav-cta" data-modal="callback">Замовити дзвінок</a>
+      </nav>
+      <button class="btn btn-cta" data-modal="callback">Замовити дзвінок</button>
+      <button class="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+<main>
+<!-- 2. Hero -->
+<section class="hero">
+  <img src="drilling-hero.jpg" alt="Алмазне буріння бетону" class="hero-bg">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content container">
+    <h1>Алмазне свердління отворів</h1>
+
+    <p class="hero-subtitle">
+      Професійне буріння отворів будь-якого діаметра без пилу та руйнування.
+      Швидко та акуратно.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn btn-primary" data-modal="consult">
+        Отримати консультацію
+      </button>
+      <a href="#price" class="btn btn-outline">Прайс</a>
+    </div>
+
+    <div class="hero-badges">
+      <div class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Без пилу</span>
+      </div>
+
+      <div class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <span>Швидко</span>
+      </div>
+    </div>
+    </div>
+</section>
+
+<!-- Мінімальна ціна + де працюємо (під Hero) -->
+<section class="coverage">
+  <div class="container coverage-card">
+
+    <div class="coverage-grid">
+      <div class="coverage-item">
+        <div class="coverage-icon">🏙️</div>
+        <div>
+          <div class="coverage-title">Мінімальна ціна по місту</div>
+          <div class="coverage-price">1800 грн</div>
+        </div>
+      </div>
+
+      <div class="coverage-item">
+        <div class="coverage-icon">🚗</div>
+        <div>
+          <div class="coverage-title">Мінімальна ціна за містом</div>
+          <div class="coverage-price">2000 грн</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coverage-where">
+      <span>Працюємо:</span> Шептицький і район
+    </div>
+
+  </div>
+</section>
+
+  <!-- 3. Послуги -->
+  <section id="services" class="section section-services">
+    <div class="container">
+      <h2 class="section-title">Наші послуги</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <img src="beton1.jpg.jpg" alt="Свердління отворів у бетоні">
+          <div class="service-content">
+            <h3>Отвори в бетоні</h3>
+            <p>Свердління діаметром від 20 до 500 мм для комунікацій, анкерів, труб.</p>
+         </div>
+        </article>
+        <article class="service-card">
+          <img src="code.tar.jpg" alt="Вентиляція та повітропроводи">
+          <div class="service-content">
+            <h3>Вентиляція</h3>
+            <p>Отвори великого діаметра під повітропроводи.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <img src="scaled.jpg" alt="Пробивання проходів">
+          <div class="service-content">
+            <h3>Проходи під комунікації</h3>
+            <p>Каналізація, водопостачання, опалення.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <img src="beto.tar.jpg" alt="Свердління залізобетону">
+          <div class="service-content">
+            <h3>Залізобетон</h3>
+            <p>Буріння армованих конструкцій будь-якої товщини.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Переваги -->
+  <section id="advantages" class="section section-advantages">
+    <div class="container">
+      <h2 class="section-title">Чому обирають нас</h2>
+      <div class="advantages-grid">
+        <div class="advantage-item">
+          <div class="advantage-icon">⚡</div>
+          <h3>Швидкий виїзд</h3>
+          <p>Приїжджаємо в день звернення</p>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-icon">🔧</div>
+          <h3>Сучасне обладнання</h3>
+          <p>Професійні алмазні коронки</p>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-icon">🧹</div>
+          <h3>Без пилу</h3>
+          <p>Підключення пиловловлювача</p>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-icon">📐</div>
+          <h3>Точність</h3>
+          <p>Відповідність проєкту ±2 мм</p>
+        </div>
+        <div class="advantage-item">
+          <div class="advantage-icon">💰</div>
+          <h3>Чесна ціна</h3>
+          <p>Фіксований прайс, без прихованих оплат</p>
+        </div>      
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Галерея -->
+  <section id="gallery" class="section section-gallery">
+    <div class="container">
+      <h2 class="section-title">Галерея робіт</h2>
+      <div class="gallery-grid">
+        <a href="IMG_3559.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3559.JPG" alt="Виконані роботи з алмазного свердління">
+        </a>
+        <a href="IMG_3565.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3565.JPG" alt="Отвір у бетонній стіні"> 
+              </a>
+        <a href="IMG_3564.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3564.JPG" alt="Свердління під кондиціонер">
+        </a>
+        <a href="IMG_3563.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3563.JPG" alt="Вентиляційний отвір">
+        </a>
+        <a href="IMG_3562.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3562.JPG" alt="Прохід під комунікації">
+        </a>
+        <a href="IMG_3561.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3561.JPG" alt="Залізобетонна конструкція">
+        </a>
+        <a href="IMG_3556.JPG" class="gallery-item" data-gallery>
+          <img src="IMG_3556.JPG" alt="Алмазне буріння на об'єкті">
+        </a>
+          <a href="tara.a.jpg" class="gallery-item" data-gallery>
+          <img src="tara.a.jpg" alt="Алмазне буріння на об'єкті">
+        </a>
+          <a href="car.rc.jpg" class="gallery-item" data-gallery>
+          <img src="car.rc.jpg" alt="Алмазне буріння на об'єкті">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal для галереї -->
+  <div class="modal" id="modal-gallery" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-content modal-gallery-content">
+      <button class="modal-close" aria-label="Закрити">&times;</button>
+      <img src="" alt="Збільшене зображення" class="modal-gallery-img">
+    </div>
+  </div>
+
+  <!-- 6. Прайс -->
+  <section id="price" class="section section-price">
+    <div class="container">
+      <h2 class="section-title">Прайс-лист</h2>
+      <h3 class="price-note">Орієнтовна вартість.Ціна розраховується індивідуально.При великих обʼємах індивідуальна цінова політика</h3>
+      <div class="price-grid">
+        <div class="price-card">
+          <span class="price-diameter">Ø 52-82 мм</span>
+          <span class="price-value">від 33 грн/см</span>
+        </div>
+        <div class="price-card">
+          <span class="price-diameter">Ø 102-122 мм</span>
+          <span class="price-value">від 36 грн/см</span>
+        </div>
+        <div class="price-card">
+          <span class="price-diameter">Ø 132-152 мм</span>
+          <span class="price-value">від 40 грн/см</span>
+        </div>
+        <div class="price-card">
+          <span class="price-diameter">Ø 162 мм</span>
+          <span class="price-value">від 46 грн/см</span>
+        </div>
+         <div class="price-card">
+          <span class="price-diameter">Ø 182 мм</span>
+          <span class="price-value">від 54 грн/см</span>
+        </div>
+         <div class="price-card">
+          <span class="price-diameter">Ø 202 мм</span>
+          <span class="price-value">від 60 грн/см</span>
+        </div>
+         <div class="price-card">
+          <span class="price-diameter">Ø 222 мм</span>
+          <span class="price-value">від 65 грн/см</span>
+        </div>
+         <div class="price-card">
+          <span class="price-diameter">Ø 250 мм</span>
+          <span class="price-value">від 73 грн/см</span>
+        </div>
+      </div>
+    </div>
+<section id="reviews" class="section section-reviews">
+  <div class="container">
+    <h2 class="section-title">Відгуки</h2>
+
+    <form class="comment-form" id="reviewForm">
+      <input type="text" id="author" name="author" placeholder="Ваше ім'я" required>
+      <textarea id="comment" name="comment" placeholder="Залиште ваш відгук..." rows="3" required></textarea>
+      <button type="submit" class="btn btn-primary">Опублікувати</button>
+      <p id="reviewStatus" style="margin-top:10px;"></p>
+    </form>
+
+    <div class="comments-list" id="reviewsList"></div>
+  </div>
+</section>
+
+  <!-- 8. Контакти -->
+    
+  <section id="contacts" class="section section-contacts">
+    <div class="container">
+      <h2 class="section-title">Зв'яжіться з нами</h2>
+      <div class="contacts-grid">
+        <div class="contacts-info">
+          <a href="tel:+380938717025" class="contact-phone">+(380) 93-871-70-25 </a>
+          <div class="contact-messengers">
+            <a href="viber://chat?number=+380938717025" class="btn-messenger" aria-label="Viber">Viber</a>
+            <a href="https://t.me/Pavlikkkkkkkkkkk" class="btn-messenger" aria-label="Telegram">Telegram</a>
+          </div>
+        </div>
+        <form class="telegram-form">
+          <input type="text" name="name" placeholder="Ваше ім'я" required>
+          <input type="tel" name="phone" placeholder="Телефон" required>
+          <textarea name="message" placeholder="Повідомлення" rows="3"></textarea>
+          <button type="submit" class="btn btn-primary">Надіслати заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+<main>
+  <!-- 9. Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Алмазне свердління</p>
+      <a href="tel:+380501234567">+(380) 93-871-70-25</a>
+    </div>
+  </footer>
+
+  <!-- Модалка для замовлення дзвінка / консультації -->
+  <div class="modal" id="modal-callback" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрити">&times;</button>
+      <h3>Замовити дзвінок</h3>
+      <p class="modal-hint">Заявка надійде в Telegram. Передзвонимо протягом години.</p>
+      <form class="telegram-form callback-form">
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <button type="submit" class="btn btn-primary">Передзвоніть мені</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 
+  TELEGRAM: Заявки надходять у Telegram на чат 8572533544
+  Для роботи потрібно задеплоїти на Vercel та додати змінну TELEGRAM_BOT_TOKEN.
+  Токен отримай у @BotFather в Telegram.
+-->
+  <!-- Supabase -->
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL = "https://ydilbxltdgzpkbhygsxb.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_WNnsf6Gy4KOIw7CfFNJmFw_jDddr3H-";
+
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const TABLE_NAME = "reviews";
+    const reviewsList = document.getElementById("reviewsList");
+    const form = document.getElementById("reviewForm");
+    const statusEl = document.getElementById("reviewStatus");
+
+    async function loadReviews() {
+      const { data, error } = await supabaseClient
+        .from(TABLE_NAME)
+        .select("*")
+        .eq("is_approved", true)
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error(error);
+        reviewsList.innerHTML = "Помилка завантаження";
+        return;
+      }
+
+      reviewsList.innerHTML = data.map(r => `
+        <div class="review-card">
+          <p>“${r.comment}”</p>
+          <strong>${r.author}</strong>
+        </div>
+      `).join("");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const author = document.getElementById("author").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      if (!author || !comment) {
+        statusEl.textContent = "Заповни ім’я і відгук";
+        return;
+      }
+
+      statusEl.textContent = "Надсилаємо...";
+
+      const { error } = await supabaseClient
+        .from(TABLE_NAME)
+        .insert([{ author, comment, is_approved: false }]);
+
+      if (error) {
+        console.error(error);
+        statusEl.textContent = "Помилка: " + error.message;
+        return;
+      }
+
+      form.reset();
+      statusEl.textContent = "Відгук відправлено!";
+      loadReviews();
+    });
+
+    loadReviews();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  
